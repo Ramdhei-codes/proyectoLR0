@@ -25,9 +25,6 @@ def transiciones_no_terminales(no_terminal, lista_producciones = []):
 
 # print(transiciones_no_terminales('F'))
                 
-
-
-
 def crear_automata(estado_actual, estados):
 
     if estado_actual not in estados:
@@ -59,8 +56,7 @@ def crear_automata(estado_actual, estados):
             return
         crear_automata(nuevo_estado, estados)
 
-
-        return estados
+    return estados
 
 
 if __name__ == '__main__':
