@@ -57,6 +57,7 @@ def crear_automata(estado_actual, estados):
         if nuevo_estado in estados:
             return estados
         crear_automata(nuevo_estado, estados)
+        
 
         return estados
 
