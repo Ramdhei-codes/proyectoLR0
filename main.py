@@ -52,18 +52,18 @@ def crear_automata(estado_actual, estados):
                             for produccion in lista_derivados:
                                 if produccion not in nuevo_estado:
                                     nuevo_estado.append(produccion)
+                
 
 
         if nuevo_estado in estados:
-            return estados
+            return
         crear_automata(nuevo_estado, estados)
-        
+
 
         return estados
 
 
 if __name__ == '__main__':
-    # print(crear_automata(i0, []))
 
     automata = crear_automata(i0, [])
 
