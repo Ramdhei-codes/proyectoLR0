@@ -49,21 +49,38 @@ def crear_automata(estado_actual, estados):
                             for produccion in lista_derivados:
                                 if produccion not in nuevo_estado:
                                     nuevo_estado.append(produccion)
-                
 
 
         if nuevo_estado in estados:
-            return
+            return estados
         crear_automata(nuevo_estado, estados)
 
     return estados
 
+def formulas(automata):
+    lista_formulas = []
+    for estado in automata:
+        for produccion in estado:
+            if produccion['punto'] == len(list(produccion.values())[0]):
+                lista_formulas.append(produccion)
+
+    return lista_formulas
+
 
 if __name__ == '__main__':
+    # print(crear_automata(i0, []))
 
     automata = crear_automata(i0, [])
 
     for estado in automata:
+        print(f'i{automata.index(estado)}')
         for produccion in estado:
             print(f'{produccion}\n')
         print('\n')
+    
+    formulas = formulas(automata)
+
+    for formula in formulas:
+        lista_valores = list(formula.values())[0]
+        lista_valores.append('.')
+        print(f'{list(formula.keys())[0]} -> {lista_valores}')
